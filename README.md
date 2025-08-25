@@ -1,15 +1,17 @@
-PhP programming
-Chương 1: Giới thiệu về PHP và Lavravel khóa Coursera (Khóa 1)
+# **PhP programming**
+## Chương 1: Giới thiệu về PHP và Lavravel khóa Coursera (Khóa 1)
 https://www.coursera.org/learn/laravel-framework-and-php/home/module/1
+### 1.1 Giới thiệu PHP 
+- PHP viết tắt của Hypertext Preprocessor.
+- Là ngôn ngữ lập trình kịch bản (scripting language) phía máy chủ (server-side).
+- Được dùng chủ yếu để tạo và phát triển các ứng dụng web động (dynamic websites).
 
-1.1 Giới thiệu PHP
-PHP viết tắt của Hypertext Preprocessor.
-Là ngôn ngữ lập trình kịch bản (scripting language) phía máy chủ (server-side).
-Được dùng chủ yếu để tạo và phát triển các ứng dụng web động (dynamic websites).
-1.2 Cú pháp PHP
+### 1.2 Cú pháp PHP
 Mã PHP được đặt trong cặp thẻ như sau:
-
+```
 <?php
+
+```
 
 Một số điểm cú pháp cơ bản:
 
@@ -23,7 +25,7 @@ Một dòng: // đây là chú thích
 
 Nhiều dòng: /* chú thích nhiều dòng */
 
-1.3 Cấu trúc điều khiển
+### 1.3 Cấu trúc điều khiển
 PHP hỗ trợ đầy đủ các cấu trúc điều khiển như các ngôn ngữ lập trình phổ biến khác:
 
 Câu lệnh điều kiện: if ($tuoi >= 18) { echo "Đã đủ tuổi."; } elseif ($tuoi == 17) { echo "Gần đủ tuổi."; } else { echo "Chưa đủ tuổi."; }
@@ -36,7 +38,7 @@ Câu lệnh lặp: // for for ($i = 0; $i < 5; $i++) { echo $i; }
 
 switch...case: $ngay = "thu hai"; switch ($ngay) { case "thu hai": echo "Hôm nay là đầu tuần."; break; default: echo "Không rõ ngày."; }
 
-1.4 Hàm trong PHP
+### 1.4 Hàm trong PHP
 Hàm là khối mã thực hiện một nhiệm vụ cụ thể, có thể tái sử dụng.
 
 Ví dụ: function chao($ten) { return "Xin chào, " . $ten; }
@@ -51,7 +53,7 @@ Có thể trả về giá trị bằng return.
 
 PHP cũng hỗ trợ hàm ẩn danh (anonymous functions) và các hàm callback.
 
-1.5 Vai trò của PHP trong phát triển ứng dụng Web
+### 1.5 Vai trò của PHP trong phát triển ứng dụng Web
 PHP giữ vai trò cốt lõi trong lập trình web phía server, cụ thể:
 
 Xử lý dữ liệu từ biểu mẫu (form) người dùng.
