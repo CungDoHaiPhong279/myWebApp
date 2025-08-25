@@ -13,26 +13,68 @@ Mã PHP được đặt trong cặp thẻ như sau:
 
 ```
 
-Một số điểm cú pháp cơ bản:
+Khai báo biến
 
-Biến bắt đầu với ký hiệu $, ví dụ: $ten = "phenikaa";
++ Biến bắt đầu với ký hiệu $, ví dụ: $ten = "phenikaa";
++ Câu lệnh kết thúc bằng dấu ;
 
-Câu lệnh kết thúc bằng dấu ;
+```
+$ten = "Phenikaa";
+```
+
+
 
 Chú thích:
 
-Một dòng: // đây là chú thích
++ Một dòng: // đây là chú thích
 
-Nhiều dòng: /* chú thích nhiều dòng */
++ Nhiều dòng: /* chú thích nhiều dòng */
+
+  ```
+  //đây là chú thích một dòng
+  /*
+   * đây là chú thích nhiều dòng
+   */
+  
+  ```
 
 ### 1.3 Cấu trúc điều khiển
 PHP hỗ trợ đầy đủ các cấu trúc điều khiển như các ngôn ngữ lập trình phổ biến khác:
 
-Câu lệnh điều kiện: if ($tuoi >= 18) { echo "Đã đủ tuổi."; } elseif ($tuoi == 17) { echo "Gần đủ tuổi."; } else { echo "Chưa đủ tuổi."; }
+#### if .. elseif ...else
 
-Câu lệnh lặp: // for for ($i = 0; $i < 5; $i++) { echo $i; }
+Câu lệnh điều kiện: 
 
-// while $i = 0; while ($i < 5) { echo $i; $i++; }
+```
+if ($tuoi >= 18)
+  { echo "Đã đủ tuổi."; }
+elseif ($tuoi == 17)
+  { echo "Gần đủ tuổi."; }
+else
+  { echo "Chưa đủ tuổi."; }
+
+```
+#### Loop : For / while /do...while
+
+Câu lệnh lặp: // for 
+```
+for ($i = 0; $i < 5; $i++)
+    { echo $i; }
+
+```
+
+// while
+
+```
+
+while $i = 0;
+while ($i < 5)
+{
+  echo $i;
+  $i++;
+}
+
+```
 
 // do...while $i = 0; do { echo $i; $i++; } while ($i < 5);
 
