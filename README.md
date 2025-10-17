@@ -25,14 +25,16 @@ Website quản lý ghi chú, cho phép người dùng tạo ghi chú, phân lo�
 
 ## Sơ đồ chức năng
 
-![UML]((https://github.com/user-attachments/assets/c5237747-ebdf-4911-9f37-e48d329c9c6c)
-L.jpg)
+![UML]((![UML](https://github.com/user-attachments/assets/479e08ad-43ed-4007-9419-98ee520148e2)
+  
+
 
 ## Sơ đồ thuật toán
 
 <strong>CRUD Note</strong>  
 
-![Note-diagram](./img/Sequence.jpg)
+![Note-diagram](![Sequence](https://github.com/user-attachments/assets/b6eb937d-9317-4f8d-ad5b-39756c5c2f6e)
+  
 
 
 # Một số Code chính minh họa
