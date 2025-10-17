@@ -2,9 +2,7 @@
 Giới thiệu:
 
 **Họ và tên Sinh viên:** Cung Đỗ Hải Phong 
-
 **Mã Sinh viên:** 23010341 
-
 **Lớp:** CSE702051-1-1-25(COUR01.TH5)  
 
 ## 📝 Mô tả dự án
