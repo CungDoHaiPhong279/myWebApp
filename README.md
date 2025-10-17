@@ -243,10 +243,10 @@ class NotesController extends Controller
 (<img width="260" height="491" alt="image" src="https://github.com/user-attachments/assets/f6063f89-bca2-40e4-b199-d7c543bf9a4b" />
 
 
+
 <strong>
     Sử dụng thư viện Tailwind CSS
 </strong>
-
 
 <img width="471" height="292" alt="image" src="https://github.com/user-attachments/assets/6aeec018-ab7b-477e-9c47-50190df56962" />
 
@@ -281,6 +281,7 @@ class NotesController extends Controller
 
 <img width="624" height="297" alt="image" src="https://github.com/user-attachments/assets/d5a453e1-395d-40ae-93ba-9b1dd98c8bba" />
 
+
 <strong>
     Middleware bảo mật
     Xử dụng các middleware auth của laravel
@@ -289,12 +290,14 @@ class NotesController extends Controller
 
 <img width="1024" height="433" alt="image" src="https://github.com/user-attachments/assets/05a964bc-80ba-4d8f-87b4-6e08b9839ddf" />
 
+
 <strong>
     Authorization
 method: NotesController@update
 </strong>
 
 <img width="573" height="132" alt="image" src="https://github.com/user-attachments/assets/b5187067-3cbb-425f-a61a-1cb7dec32785" />
+
 
 <strong>
     Authentication
