@@ -1,164 +1,347 @@
-# **PhP programming**
-## Chương 1: Giới thiệu về PHP và Lavravel khóa Coursera (Khóa 1)
-https://www.coursera.org/learn/laravel-framework-and-php/home/module/1
-### 1.1 Giới thiệu PHP 
-- PHP viết tắt của Hypertext Preprocessor.
-- Là ngôn ngữ lập trình kịch bản (scripting language) phía máy chủ (server-side).
-- Được dùng chủ yếu để tạo và phát triển các ứng dụng web động (dynamic websites).
+# Project: NoteApp
+Giới thiệu:
 
-### 1.2 Cú pháp PHP
-Mã PHP được đặt trong cặp thẻ như sau:
-```
-<?php
+**Họ và tên Sinh viên:** Cung Đỗ Hải Phong 
+**Mã Sinh viên:** 23010341 
+**Lớp:** CSE702051-1-1-25(COUR01.TH5)  
 
-```
+## 📝 Mô tả dự án
 
-Khai báo biến
+Website quản lý ghi chú, cho phép người dùng tạo ghi chú, phân loại.  
 
-+ Biến bắt đầu với ký hiệu $, ví dụ: $ten = "phenikaa";
-+ Câu lệnh kết thúc bằng dấu ;
-
-```
-$ten = "Phenikaa";
-```
+## 🧰 Công nghệ sử dụng
+- PHP (Laravel Framework)
+- Laravel Breeze
+- MySQL (Aiven Cloud)
+- Blade Template
+- Tailwind CSS (do Breeze tích hợp sẵn)
 
 
+# Sơ đồ khối
+![SQL diagram](./img/ERD.jpg)
 
-Chú thích:
+## Sơ đồ chức năng
 
-+ Một dòng: // đây là chú thích
+![UML](./img/UML.jpg)
 
-+ Nhiều dòng: /* chú thích nhiều dòng */
+## Sơ đồ thuật toán
 
-  ```
-  //đây là chú thích một dòng
-  /*
-   * đây là chú thích nhiều dòng
-   */
-  
-  ```
+<strong>CRUD Note</strong>  
 
-### 1.3 Cấu trúc điều khiển
-PHP hỗ trợ đầy đủ các cấu trúc điều khiển như các ngôn ngữ lập trình phổ biến khác:
+![Note-diagram](./img/Sequence.jpg)
 
-#### if .. elseif ...else
 
-Câu lệnh điều kiện: 
+# Một số Code chính minh họa
 
-```
-if ($tuoi >= 18)
-  { echo "Đã đủ tuổi."; }
-elseif ($tuoi == 17)
-  { echo "Gần đủ tuổi."; }
-else
-  { echo "Chưa đủ tuổi."; }
+## Model
 
-```
-#### Loop : For / while /do...while
+<strong>Note Model</strong>
 
-Câu lệnh lặp: // for 
-```
-for ($i = 0; $i < 5; $i++)
-    { echo $i; }
-
-```
-
-// while
-
-```
-
-while $i = 0;
-while ($i < 5)
+```php
+class Note extends Model
 {
-  echo $i;
-  $i++;
+     protected $fillable = ['title', 'text', 'user_id', 'status_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function status(){
+        return $this->belongsTo(Status::class);
+   }
 }
 
 ```
+<strong>Tag Model</strong>
 
-// do...while
-```
-
-
-$i = 0;
-do {
-  echo $i;
-  $i++;
-}
-while ($i < 5);
-
-```
-
-//Re nhanh switch..case
-
-
-switch...case: 
-```
-$ngay = "thu hai";
-switch ($ngay)
-{ case "thu hai":
-  echo "Hôm nay là đầu tuần.";
-  break;
-
-  case "thu ba":
-  echo "Hôm nay là thứ 3.";
-  break;
-
-  default: echo "Không rõ ngày.";
-}
-
-```
-### 1.4 Hàm trong PHP
-
-+ Giống Methods trong Class
-+ Hàm là khối mã thực hiện một nhiệm vụ cụ thể, tái sử dụng.
-
-Ví dụ: 
-```
-function chao($ten)
+```php
+class Tag extends Model
 {
-   return "Xin chào, " . $ten;
+    protected $fillable = ['tagName'];
+
+    public function notes() {
+        return $this->belongsToMany(Note::class);
+    }
 
 }
 
 ```
+<strong>Status Model</strong>
 
-echo chao("Minh");
+```php
+class Status extends Model
+{
+    protected $fillable = ['name'];
 
-Đặc điểm:
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
+}
 
-+ Có thể có hoặc không tham số.
+```
 
-+ Có thể trả về giá trị bằng return.
 
-PHP cũng hỗ trợ hàm ẩn danh (anonymous functions) và các hàm callback.
+## Controller
+<strong>Notes Controller</strong>
 
-### 1.5 Vai trò của PHP trong phát triển ứng dụng Web
-PHP giữ vai trò cốt lõi trong lập trình web phía server, cụ thể:
+```php
+class NotesController extends Controller
+{
 
-Xử lý dữ liệu từ biểu mẫu (form) người dùng.
+    //search
+    public function index(Request $request)
+    {
+        $user = Auth::user();
 
-Kết nối và thao tác với cơ sở dữ liệu.
+        $query = Note::where('user_id', $user->id);
 
-Control/Điều khiển nôi dung động (dynamic content) từ CSDL về View hoặc từ View về Model (CSDL).
+        if ($request->filled('search')) {
+            $searchTerm = $request->search;
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('title', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('tags', function ($q2) use ($searchTerm) {
+                        $q2->where('tagName', 'like', '%' . $searchTerm . '%');
+                    });
+            });
+        }
 
-Xử lý các nghiệp vụ phát triển phần mềm: 
-Ví dụ: 
+        $notes = $query->with(['tags', 'status'])->paginate(10);
 
-+ Xử lý xác thực, định dạnh và phần quyền người dùng (login, register).
-+ CRUD
-+ Phân tích xử lý nghiệp vụ doanh nghiệp (business logic)
+        return view('notes.index', ['notes' => $notes]);
+    }
 
-Tích hợp dễ dàng với các framework Frontend, HTML, CSS, JavaScript.
+    //get
+    public function note($id)
+    {
+        $user = Auth::user();
+        $note = Note::where('id', $id)
+            ->where('user_id', $user->id)
+            ->with('tags', 'status')
+            ->firstOrFail();
 
-Tạo API hoặc làm việc với JSON, XML.
+        return view('notes.note', [
+            'note' => $note
+        ]);
+    }
 
-PHP thường được sử dụng để xây dựng các hệ thống như:
+    //create
+    public function create()
+    {
+        $statuses = Status::all();
+        return view('notes.form', compact('statuses'));
+    }
 
-Website thương mại điện tử
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:50',
+            'text' => 'required|string|max:255',
+            'tags' => 'nullable|string',
+            'status_id' => 'required|exists:statuses,id',
+        ]);
 
-Hệ quản trị nội dung (CMS) như WordPress, Joomla
+        $note = Note::create([
+            'title' => $validated['title'],
+            'text' => $validated['text'],
+            'user_id' => auth()->id(),
+            'status_id' => $validated['status_id'],
+        ]);
 
-Diễn đàn (forums), mạng xã hội
+        if ($request->filled('tags')) {
+            $tagNames = array_map('trim', explode(',', $request->input('tags')));
+            $tagIds = [];
+            foreach ($tagNames as $tagName) {
+                if (!empty($tagName)) {
+                    $tag = Tag::firstOrCreate(['tagName' => $tagName]);
+                    $tagIds[] = $tag->id;
+                }
+            }
+            $note->tags()->sync($tagIds);
+        }
 
-Web service, RESTful API
+        return redirect()->route('notes.index')->with('success', 'Note created successfully.');
+    }
+
+    //update
+    public function edit($id)
+    {
+        $user = Auth::user();
+        $note = Note::where('id', $id)
+            ->where('user_id', $user->id)
+            ->with('tags')
+            ->firstOrFail();
+
+        $statuses = Status::all();
+
+        return view('notes.edit', compact('note', 'statuses'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:50',
+            'text' => 'required|string|max:255',
+            'tags' => 'nullable|string',
+            'status_id' => 'required|exists:statuses,id',
+        ]);
+
+        $user = Auth::user();
+        $note = Note::where('id', $id)
+            ->where('user_id', $user->id)
+            ->firstOrFail();
+
+        $note->title = $request->input('title');
+        $note->text = $request->input('text');
+        $note->status_id = $request->input('status_id');
+        $note->save();
+
+        $tagIds = [];
+        if ($request->filled('tags')) {
+            $tagNames = array_map('trim', explode(',', $request->input('tags')));
+            foreach ($tagNames as $tagName) {
+                if (!empty($tagName)) {
+                    $tag = Tag::firstOrCreate(['tagName' => $tagName]);
+                    $tagIds[] = $tag->id;
+                }
+            }
+        }
+        $note->tags()->sync($tagIds);
+
+        return redirect()->route('notes.index')->with('success', 'Note updated successfully!');
+    }
+
+    //delete
+    public function delete($id)
+    {
+        $user = Auth::user();
+        $note = Note::where('id', $id)->where('user_id', $user->id)->firstOrFail();
+        $note->delete();
+        return redirect()->route('notes.index')->with('success', 'Note deleted successfully!');
+    }
+}
+
+```
+
+## View
+
+<strong>
+    Cấu trúc chính của view
+</strong>
+
+![Structure-view](./img/view.jpg)
+
+<strong>
+    Sử dụng thư viện Tailwind CSS
+</strong>
+
+![tailwind1](./img/taiwind.jpg)
+
+# Security Setup
+
+<strong>
+    Sử dụng @csrf để chống tấn công CSRF
+</strong>
+
+![csrf](./img/csrf.jpg)
+
+<strong>
+    Chống XSS
+</strong>
+
+![XSS](./img/xss.jpg)
+
+<strong>
+    Validation: Ràng buộc dữ liệu
+    Ví dụ method NotesController@store
+</strong>
+
+![Validation](./img/validate.jpg)
+
+<strong>
+    Query Builder Protection chống SQL Injection
+</strong>
+
+![SQL-inject](./img/query.jpg)
+
+<strong>
+    Middleware bảo mật
+    Xử dụng các middleware auth của laravel
+    Ví dụ: file routes/web.php
+</strong>
+
+![Middleware](./img/middleware.jpg)
+
+<strong>
+    Authorization
+method: NotesController@update
+</strong>
+
+![Authentication](./img/auth.jpg)
+
+<strong>
+    Authentication
+    Ví dụ: Sử dụng Auth() để lấy thông tin user 1 cách an toàn
+</strong>
+
+![Authentication](./img/authen.jpg)
+
+# Link
+
+## Github Link
+
+`https://github.com/DucHuy74/NoteApp_Laravel`
+
+## Github page
+
+`https://duchuy74.github.io/NoteApp_Laravel/`
+
+## Public Web (deployment) link: 
+`https://noteapp-laravel-main-3mubbt.laravel.cloud/`
+
+# Một số hình ảnh chức năng chính
+
+## Xác thực người dùng <\<Breeze>\>
+
+<strong>Trang đăng nhập</strong>
+
+![Register](./img/sign-in.jpg)
+
+<strong>Trang đăng ký</strong>
+
+![Register](./img/register.jpg)
+
+## Trang chính
+
+![trang chủ](./img/trangchu.jpg)
+
+## CRUD Note
+
+<strong>Create Note</strong>
+
+![create-note](./img/create.jpg)
+
+<strong>Read</strong>
+
+![update](./img/read.jpg)
+
+<strong>Update</strong>
+
+![update](./img/update.jpg)
+
+<strong>Delete</strong>
+
+![update](./img/delete.jpg)
+
+<strong>Search</strong>
+
+![update](./img/search.jpg)
+
+# License & Copy Rights
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
