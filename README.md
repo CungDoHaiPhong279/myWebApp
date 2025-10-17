@@ -33,7 +33,7 @@ Website quản lý ghi chú, cho phép người dùng tạo ghi chú, phân lo�
 
 <strong>CRUD Note</strong>  
 
-![Note-diagram](![Sequence](https://github.com/user-attachments/assets/b6eb937d-9317-4f8d-ad5b-39756c5c2f6e)
+(![Sequence](https://github.com/user-attachments/assets/b6eb937d-9317-4f8d-ad5b-39756c5c2f6e)
   
 
 
