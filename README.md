@@ -240,7 +240,8 @@ class NotesController extends Controller
     Cấu trúc chính của view
 </strong>
 
-![Structure-view](./img/view.jpg)
+![Structure-view](<img width="260" height="491" alt="image" src="https://github.com/user-attachments/assets/f6063f89-bca2-40e4-b199-d7c543bf9a4b" />
+
 
 <strong>
     Sử dụng thư viện Tailwind CSS
