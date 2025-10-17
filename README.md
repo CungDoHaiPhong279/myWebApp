@@ -20,11 +20,13 @@ Website quản lý ghi chú, cho phép người dùng tạo ghi chú, phân lo�
 
 
 # Sơ đồ khối
-![SQL diagram](./img/ERD.jpg)
+![SQL diagram](https://github.com/user-attachments/assets/8975bb23-d763-4111-884e-94f9c8dd20d6)
+
 
 ## Sơ đồ chức năng
 
-![UML](./img/UML.jpg)
+![UML]((https://github.com/user-attachments/assets/c5237747-ebdf-4911-9f37-e48d329c9c6c)
+L.jpg)
 
 ## Sơ đồ thuật toán
 
