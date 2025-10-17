@@ -248,6 +248,7 @@ class NotesController extends Controller
     Sử dụng thư viện Tailwind CSS
 </strong>
 
+
 <img width="471" height="292" alt="image" src="https://github.com/user-attachments/assets/6aeec018-ab7b-477e-9c47-50190df56962" />
 
 
@@ -303,7 +304,6 @@ method: NotesController@update
     Authentication
     Ví dụ: Sử dụng Auth() để lấy thông tin user 1 cách an toàn
 </strong>
-
 
 <img width="789" height="174" alt="image" src="https://github.com/user-attachments/assets/94ef45aa-cd30-4411-9850-a8c203e26eb3" />
 
