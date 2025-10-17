@@ -25,7 +25,7 @@ Website quản lý ghi chú, cho phép người dùng tạo ghi chú, phân lo�
 
 ## Sơ đồ chức năng
 
-![UML]((![UML](https://github.com/user-attachments/assets/479e08ad-43ed-4007-9419-98ee520148e2)
+![UML](https://github.com/user-attachments/assets/479e08ad-43ed-4007-9419-98ee520148e2)
   
 
 
