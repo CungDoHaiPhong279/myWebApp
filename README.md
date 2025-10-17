@@ -270,8 +270,9 @@ class NotesController extends Controller
     Validation: Ràng buộc dữ liệu
     Ví dụ method NotesController@store
 </strong>
+
 <img width="1132" height="390" alt="image" src="https://github.com/user-attachments/assets/24f335ea-c267-46c0-9757-5c2762e80f36" />
-![Validation](./img/validate.jpg)
+
 
 <strong>
     Query Builder Protection chống SQL Injection
