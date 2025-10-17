@@ -2,7 +2,9 @@
 Giới thiệu:
 
 **Họ và tên Sinh viên:** Cung Đỗ Hải Phong 
+
 **Mã Sinh viên:** 23010341 
+
 **Lớp:** CSE702051-1-1-25(COUR01.TH5)  
 
 ## 📝 Mô tả dự án
@@ -295,11 +297,11 @@ method: NotesController@update
 
 ## Github Link
 
-`https://github.com/DucHuy74/NoteApp_Laravel`
+`https://github.com/CungDoHaiPhong279/myWebApp.git`
 
 ## Github page
 
-`https://duchuy74.github.io/NoteApp_Laravel/`
+`https://CungDoHaiPhong279.github.io/NoteApp_Laravel/`
 
 ## Public Web (deployment) link: 
 `https://noteapp-laravel-main-3mubbt.laravel.cloud/`
