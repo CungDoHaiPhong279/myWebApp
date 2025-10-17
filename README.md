@@ -33,7 +33,7 @@ Website quản lý ghi chú, cho phép người dùng tạo ghi chú, phân lo�
 
 <strong>CRUD Note</strong>  
 
-(![Sequence](https://github.com/user-attachments/assets/b6eb937d-9317-4f8d-ad5b-39756c5c2f6e)
+![Sequence](https://github.com/user-attachments/assets/b6eb937d-9317-4f8d-ad5b-39756c5c2f6e)
   
 
 
@@ -240,16 +240,14 @@ class NotesController extends Controller
     Cấu trúc chính của view
 </strong>
 
-(<img width="260" height="491" alt="image" src="https://github.com/user-attachments/assets/f6063f89-bca2-40e4-b199-d7c543bf9a4b" />
-
+![view](https://github.com/user-attachments/assets/4985732e-9ee1-4b80-8622-459b153afa65)
 
 
 <strong>
     Sử dụng thư viện Tailwind CSS
 </strong>
 
-
-<img width="471" height="292" alt="image" src="https://github.com/user-attachments/assets/6aeec018-ab7b-477e-9c47-50190df56962" />
+![taiwind](https://github.com/user-attachments/assets/4c4dcada-0b8c-4e6e-b1ea-bc804efdc923)
 
 
 # Security Setup
@@ -258,14 +256,14 @@ class NotesController extends Controller
     Sử dụng @csrf để chống tấn công CSRF
 </strong>
 
-<img width="1036" height="253" alt="image" src="https://github.com/user-attachments/assets/ac0be449-7605-47fa-aae4-3459bb3faa27" />
+![csrf](https://github.com/user-attachments/assets/96534d28-6baa-40b0-9875-11305fadaa3e)
 
 
 <strong>
     Chống XSS
 </strong>
 
-<img width="1136" height="411" alt="image" src="https://github.com/user-attachments/assets/0db5dac3-9707-4932-989b-4196d7ed4709" />
+![xss](https://github.com/user-attachments/assets/e91260e3-283c-4f1a-8e1c-ee5e192ea6a2)
 
 
 <strong>
@@ -273,14 +271,14 @@ class NotesController extends Controller
     Ví dụ method NotesController@store
 </strong>
 
-<img width="1132" height="390" alt="image" src="https://github.com/user-attachments/assets/24f335ea-c267-46c0-9757-5c2762e80f36" />
+![validate](https://github.com/user-attachments/assets/9c33cc02-b175-4e3d-93c0-a78226669cf4)
 
 
 <strong>
     Query Builder Protection chống SQL Injection
 </strong>
 
-<img width="624" height="297" alt="image" src="https://github.com/user-attachments/assets/d5a453e1-395d-40ae-93ba-9b1dd98c8bba" />
+![query](https://github.com/user-attachments/assets/59ae0083-c6b0-4731-ba4f-0e07869d91c4)
 
 
 <strong>
@@ -289,7 +287,7 @@ class NotesController extends Controller
     Ví dụ: file routes/web.php
 </strong>
 
-<img width="1024" height="433" alt="image" src="https://github.com/user-attachments/assets/05a964bc-80ba-4d8f-87b4-6e08b9839ddf" />
+![middleware](https://github.com/user-attachments/assets/7fb4af65-f8f1-42b4-9b29-a5bd1c2096c5)
 
 
 <strong>
@@ -297,7 +295,7 @@ class NotesController extends Controller
 method: NotesController@update
 </strong>
 
-<img width="573" height="132" alt="image" src="https://github.com/user-attachments/assets/b5187067-3cbb-425f-a61a-1cb7dec32785" />
+![auth](https://github.com/user-attachments/assets/5eca7bac-7bbb-4c62-bb70-c2493ae12dd9)
 
 
 <strong>
@@ -305,7 +303,8 @@ method: NotesController@update
     Ví dụ: Sử dụng Auth() để lấy thông tin user 1 cách an toàn
 </strong>
 
-<img width="789" height="174" alt="image" src="https://github.com/user-attachments/assets/94ef45aa-cd30-4411-9850-a8c203e26eb3" />
+![authen](https://github.com/user-attachments/assets/8ff49057-3474-45ed-bb1a-b99efbd83c76)
+
 
 # Link
 
@@ -326,37 +325,45 @@ method: NotesController@update
 
 <strong>Trang đăng nhập</strong>
 
-<img width="1920" height="986" alt="image" src="https://github.com/user-attachments/assets/3236570e-bb24-42fd-bc15-a9c6e4efa91c" />
+![sign-in](https://github.com/user-attachments/assets/f6042fd5-63a8-4a21-beea-782aa387ec7b)
+
 
 <strong>Trang đăng ký</strong>
 
-<img width="1920" height="885" alt="image" src="https://github.com/user-attachments/assets/e41c04ca-36d5-4d2e-80ee-26043981dde1" />
+![register](https://github.com/user-attachments/assets/85b94dc0-0c5e-4b64-9b51-6b6dffff68c1)
+
 
 ## Trang chính
 
-<img width="1920" height="888" alt="image" src="https://github.com/user-attachments/assets/f2c821d9-5cc6-40f7-9f76-3ecd6891fcf0" />
+![trangchu](https://github.com/user-attachments/assets/78f8172d-c90a-449f-ba65-8864937a2b2f)
+
 
 ## CRUD Note
 
 <strong>Create Note</strong>
 
-<img width="1920" height="881" alt="image" src="https://github.com/user-attachments/assets/abd5beaf-4a7c-4bd6-a0b4-854e0415c426" />
+![create](https://github.com/user-attachments/assets/6e56ee22-ae91-4a38-b87a-3ae025af5178)
+
 
 <strong>Read</strong>
 
-<img width="1920" height="878" alt="image" src="https://github.com/user-attachments/assets/64458aec-724b-4cb8-9b94-dce21f24f437" />
+![read](https://github.com/user-attachments/assets/7f8cf7bc-a39f-4cd6-90af-d971ae158330)
+
 
 <strong>Update</strong>
 
-<img width="1920" height="884" alt="image" src="https://github.com/user-attachments/assets/df901aa6-c802-4a46-9ea4-badd40ce1dcd" />
+![update](https://github.com/user-attachments/assets/d5a8518e-14fc-4faf-9507-a273e2d9e2ce)
+
 
 <strong>Delete</strong>
 
-<img width="1920" height="981" alt="image" src="https://github.com/user-attachments/assets/bbf0ab53-7381-4ee8-8172-ea395f2345b4" />
+![delete](https://github.com/user-attachments/assets/a9040032-421b-4cd8-8661-32d83537b74d)
+
 
 <strong>Search</strong>
 
-<img width="1920" height="878" alt="image" src="https://github.com/user-attachments/assets/80a77025-31b3-45dd-8328-4d5c474154ed" />
+![search](https://github.com/user-attachments/assets/dde4474c-74d5-46be-a0ff-92c5fde2c093)
+
 
 # License & Copy Rights
 
